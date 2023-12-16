@@ -17,7 +17,7 @@ const router = createBrowserRouter([
       {
         path: '/:id',
         element: <UserDetail />,
-        loader: async ({ params }) =>  {
+        loader: async ({ params }) => {
           try {
             const response = await fetch(`https://602e7c2c4410730017c50b9d.mockapi.io/users/${params.id}`);
             if (!response.ok) {
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
               error.response = response;
               throw error;
             }
-      
+
             const data = await response.json();
             return data;
           } catch (error) {

@@ -27,17 +27,17 @@ const Userlist = () => {
 
   return (
     <div className='mx-5 my-5'>
-<ListGroup  >
+      <ListGroup  >
 
 
-          <ListGroup.Item className='' >
-            <h1 className='text-uppercase  px-2 text-center '>Users</h1>
-          </ListGroup.Item>
+        <ListGroup.Item className='' >
+          <h1 className='text-uppercase  px-2 text-center '>Users</h1>
+        </ListGroup.Item>
 
 
-        </ListGroup>
+      </ListGroup>
       <div className=' overflow-y-scroll  ' style={{ height: '400px' }}>
-        
+
         {
           users.length != 0 ? (users.map(u => (
             <div className="flex-column " key={u.id}>

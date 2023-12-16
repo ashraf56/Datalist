@@ -6,14 +6,14 @@ const Home = () => {
     return (
         <div className='row container mx-auto h-100 justify-content-center  align-items-center'>
             <div className='col-lg-5'>
-           
-<Userlist></Userlist>
+
+                <Userlist></Userlist>
             </div>
             <div className='col-lg-7'>
- <Outlet></Outlet>
+                <Outlet></Outlet>
             </div>
-             
-          
+
+
         </div>
     );
 };
