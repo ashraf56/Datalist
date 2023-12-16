@@ -45,6 +45,7 @@ const Userlist = () => {
 
                 <Link to={`/${u.id}`} className='list-style-none  text-decoration-none'>
                   <ListGroup.Item >
+                    {/* if api image not working then img will show */}
                     <img src={img || users?.avatar} className=" img-fluid " style={{ width: '53px', height: '50px' }} />
                     <span className='fw-bold ps-2'> {u?.profile?.firstName}</span>
                   </ListGroup.Item>

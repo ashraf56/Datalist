@@ -29,6 +29,7 @@ const UserDetail = () => {
                    <div className="card shadow-lg " style={{height:'400px'}} >
   
   <div className="card-body align-items-center justify-content-evenly">
+     {/* if api image not working then img will show */}
      <img src={img || user?.avatar} className=" img-fluid " style={{width:'153px', height:'138px'}}/>
 
 <div>
