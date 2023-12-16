@@ -6,9 +6,9 @@ const UserDetail = () => {
   console.log(user);
 
   if (!user) {
-    return <div>Loading...</div>;
+    return <div className='fw-bold text-center'> Please select any profile</div>;
   }
-
+ 
   if (user.error) {
     if (user.error.response && user.error.response.status === 429) {
 
@@ -21,7 +21,7 @@ const UserDetail = () => {
     <div>
       <h1 className='text-uppercase card px-2 text-center'>User details</h1>
       {
-        !user ? 'loading..' :
+     
           <div>
 
             <div className="card shadow-lg " style={{ height: '400px' }} >
