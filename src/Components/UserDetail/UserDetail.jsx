@@ -14,8 +14,6 @@ const UserDetail = () => {
 
       return <div className='fw-bold text-center'>Too many requests. Please try again later.</div>;
     }
-
-
     return <div className='fw-bold text-center'>Error loading data: {user.error.message}</div>;
   }
 
