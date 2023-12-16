@@ -21,7 +21,7 @@ const UserDetail = () => {
 
     return (
         <div>
-            <h1 className='text-uppercase'>User details</h1>
+            <h1 className='text-uppercase card px-2 text-center'>User details</h1>
            {
           !user  ? 'loading..' :
                 <div>
