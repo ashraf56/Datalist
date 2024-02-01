@@ -1,11 +1,11 @@
 
-import UserDetail from "./Components/UserDetail/UserDetail";
+import DataDetail from "./Components/DataDetail/DataDetail";
 function App() {
 
   return (
     <>
 
-      <UserDetail></UserDetail>
+      <DataDetail></DataDetail>
     </>
   )
 }

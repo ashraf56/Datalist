@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../Home/Home";
 
 import App from "../App";
-import UserDetail from "../Components/UserDetail/UserDetail";
+import DataDetail from "../Components/DataDetail/DataDetail";
 
 const router = createBrowserRouter([
   {
@@ -16,10 +16,10 @@ const router = createBrowserRouter([
       },
       {
         path: '/:id',
-        element: <UserDetail />,
+        element: <DataDetail />,
         loader: async ({ params }) => {
           try {
-            const response = await fetch(`https://602e7c2c4410730017c50b9d.mockapi.io/users/${params.id}`);
+            const response = await fetch(`https://api.tvmaze.com/shows/${params.id}`);
             if (!response.ok) {
               const error = new Error(`Failed to fetch user data. Status: ${response.status}`);
               error.response = response;

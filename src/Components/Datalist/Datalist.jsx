@@ -3,13 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { ListGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import img from '../../assets/download 2.png'
-const Userlist = () => {
+const Datalist = () => {
 
   let [users, Setuser] = useState([])
   useEffect(() => {
     const fetchuserData = async () => {
       try {
-        const response = await fetch('https://602e7c2c4410730017c50b9d.mockapi.io/users');
+        const response = await fetch('https://api.tvmaze.com/search/shows?q=all');
         if (!response.ok) {
           throw new Error(' response is not ok');
 
@@ -40,14 +40,14 @@ const Userlist = () => {
 
         {
           users.length != 0 ? (users.map(u => (
-            <div className="flex-column " key={u.id}>
+            <div className="flex-column " key={u.show.id}>
               <ListGroup  >
 
-                <Link to={`/${u.id}`} className='list-style-none  text-decoration-none'>
+                <Link to={`/${u?.show?.id}`} className='list-style-none  text-decoration-none'>
                   <ListGroup.Item >
                     {/* if api image not working then img will show */}
-                    <img src={img || users?.avatar} className=" img-fluid " style={{ width: '53px', height: '50px' }} />
-                    <span className='fw-bold ps-2'> {u?.profile?.firstName}</span>
+                    <img src={u?.show?.image?.medium} className=" img-fluid " style={{ width: '53px', height: '50px' }} />
+                    <span className='fw-bold ps-2'> {u?.show?.averageRuntime}</span>
                   </ListGroup.Item>
                 </Link>
 
@@ -70,4 +70,4 @@ const Userlist = () => {
   );
 };
 
-export default Userlist;
+export default Datalist;

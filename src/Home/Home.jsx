@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import Userlist from '../Components/Userlist/Userlist';
+import Datalist from '../Components/Datalist/Datalist';
 import { ListGroup } from 'react-bootstrap';
 
 const Home = () => {
@@ -7,7 +7,7 @@ const Home = () => {
         <div className='row container mx-auto h-100 justify-content-center  align-items-center'>
             <div className='col-lg-5'>
 
-                <Userlist></Userlist>
+                <Datalist></Datalist>
             </div>
             <div className='col-lg-7'>
                 <Outlet></Outlet>
