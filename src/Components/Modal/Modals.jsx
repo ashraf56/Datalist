@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Modals = ({show, handleClose, selectedTask}) => {
 
@@ -32,6 +33,7 @@ const Modals = ({show, handleClose, selectedTask}) => {
       
         // Save updated tickets array
         localStorage.setItem('tickets', JSON.stringify(tickets));
+        toast.success('success')
         reset()
       };
     
@@ -66,7 +68,7 @@ const Modals = ({show, handleClose, selectedTask}) => {
  
   <button type="submit" className="btn btn-primary">Book now</button>
 </form> 
- 
+ <Toaster/>
          </Modal.Body>
        </Modal>
     );
