@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { ListGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import img from '../../assets/download 2.png'
 const Datalist = () => {
 
   let [users, Setuser] = useState([])
@@ -26,17 +25,17 @@ const Datalist = () => {
   }, []);
 
   return (
-    <div className='mx-5 my-5'>
+    <div className=''>
       <ListGroup  >
 
 
-        <ListGroup.Item className='' >
-          <h1 className='text-uppercase  px-2 text-center '>Users</h1>
+        <ListGroup.Item className='mt-5' >
+          <h1 className='text-uppercase  px-2 text-center fs-6 '>All shows</h1>
         </ListGroup.Item>
 
 
       </ListGroup>
-      <div className=' overflow-y-scroll  ' style={{ height: '400px' }}>
+      <div className=' overflow-y-scroll  ' style={{ height: '500px' }}>
 
         {
           users.length != 0 ? (users.map(u => (
@@ -46,8 +45,8 @@ const Datalist = () => {
                 <Link to={`/${u?.show?.id}`} className='list-style-none  text-decoration-none'>
                   <ListGroup.Item >
                     {/* if api image not working then img will show */}
-                    <img src={u?.show?.image?.medium} className=" img-fluid " style={{ width: '53px', height: '50px' }} />
-                    <span className='fw-bold ps-2'> {u?.show?.averageRuntime}</span>
+                    <img src={u?.show?.image?.original} className=" img-fluid " style={{ width: '53px', height: '50px' }} />
+                    <span className='fw-bold ps-2'> {u?.show?.name}</span>
                   </ListGroup.Item>
                 </Link>
 

@@ -1,15 +1,14 @@
 import { Outlet } from 'react-router-dom';
 import Datalist from '../Components/Datalist/Datalist';
-import { ListGroup } from 'react-bootstrap';
 
 const Home = () => {
     return (
-        <div className='row container mx-auto h-100 justify-content-center  align-items-center'>
-            <div className='col-lg-5'>
+        <div className='row container mx-auto justify-content-center  align-items-center' >
+            <div className='col-lg-3'>
 
                 <Datalist></Datalist>
             </div>
-            <div className='col-lg-7'>
+            <div className='col-lg-9'>
                 <Outlet></Outlet>
             </div>
 

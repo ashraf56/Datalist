@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import img from '../../assets/download 2.png'
 const DataDetail = () => {
   let user = useLoaderData()
-  console.log(user.id);
+  console.log(user);
 
   if (!user) {
     return <div className='fw-bold text-center'> Please select any profile</div>;
@@ -18,34 +17,32 @@ const DataDetail = () => {
   }
 
   return (
-    <div>
-      <h1 className='text-uppercase card px-2 text-center'>User details</h1>
+    <div className='shadow-lg'>
       {
 
         <div>
 
-          <div className="card shadow-lg " style={{ height: '400px' }} >
-
-            <div className="card-body align-items-center justify-content-evenly">
-              {/* if api image not working then img will show */}
-              <img src={user?.avatar || img} className=" img-fluid " style={{ width: '153px', height: '138px' }} />
-
-              <div>
-
-                <h5 className="card-title pt-3 ps-3 fw-bold">{user?.id} {user?.profile?.lastName} </h5>
-                <ul className="list-group list-group-flush ">
-
-                  <li className="list-group-item"> <span className='fw-bold pe-1'>Bio:</span> {user?.Bio}</li>
-                  <li className="list-group-item"><span className='fw-bold pe-1'>JobTitle:</span>{user?.jobTitle}</li>
-                  <li className="list-group-item"><span className='fw-bold pe-1'>Email:</span>{user?.profile?.email}</li>
-                  <li className="list-group-item"><span className='fw-bold pe-1'>username:</span>{user?.profile?.username}</li>
-                </ul>
-              </div>
-              <Link>  <button className='btn'>
-                Book now
-              </button></Link>
-            </div>
-          </div>
+<div class="card mb-3 ">
+  <div class="row g-0">
+    <div class="col-md-4 align-items-center justify-item-center text-center">
+      <h1 className='justify-content-center'>{user?.name}</h1>
+      <h3 className='display-6'>{user?.type}</h3>
+      <h5 >{user?.language}</h5>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+       
+        <p class="card-text">{user?.summary}</p>
+        <p class="card-text"><small class="text-body-secondary">{user?.runtime || 0} min</small></p>
+        <Link >
+        <button className='btn btn-dark'>
+          Book
+        </button>
+        </Link>
+      </div>
+    </div>
+  </div>
+</div>
         </div>
 
       }
