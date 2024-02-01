@@ -1,19 +1,25 @@
 import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import Formdata from '../Form/Formdata';
-import { Button } from 'react-bootstrap';
+import { Button, Form, Modal } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
+import Modals from '../Modal/Modals';
 
-const DataDetail = () => {
+const DataDetail = () => {  
+  const [selectedTask, setSelectedTask] = useState(null);
   const [show, setShow] = useState(false);
-let user = useLoaderData()
+  let user = useLoaderData()
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-let handleMovie= ()=>{
-setShow(user)
-}
+  const handleShow = () => {
+    
+    setShow(true)
+  };
+const openModal = (movie) => {
+    setSelectedTask(movie);
+   handleShow()
+   
+  };
+ 
   
-
-
   if (!user) {
     return <div className='fw-bold text-center'> Please select any profile</div>;
   }
@@ -32,21 +38,21 @@ setShow(user)
 
         <div>
 
-          <div class="card mb-3 h-100 ">
-            <div class="row g-0">
-              <div class="col-md-4 align-items-center justify-item-center text-center py-5">
+          <div className="card mb-3 h-100 ">
+            <div className="row g-0">
+              <div className="col-md-4 align-items-center justify-item-center text-center py-5">
                 <h1 className='justify-content-center'>{user?.name}</h1>
                 <h3 className='display-6'>{user?.type}</h3>
                 <h5 >{user?.language}</h5>
               </div>
-              <div class="col-md-8">
-                <div class="card-body">
+              <div className="col-md-8">
+                <div className="card-body">
                   <h5 className='fs-6'>{user?.ended}</h5>
-                  <p class="card-text">{user?.summary}</p>
-                  <p class="card-text"><small class="text-body-secondary">{user?.runtime || 0} min</small></p>
-                  <Button variant="primary" onClick={handleShow} >
-       Book
-      </Button>
+                  <p className="card-text">{user?.summary}</p>
+                  <p className="card-text"><small className="text-body-secondary">{user?.runtime || 0} min</small></p>
+                  <Button variant="primary" onClick={()=>openModal(user)} >
+                    Book
+                  </Button>
                 </div>
               </div>
             </div>
@@ -54,7 +60,7 @@ setShow(user)
         </div>
 
       }
-      <Formdata show={show} handleClose={handleClose} user={user}/>
+ <Modals show={show} selectedTask={selectedTask} handleClose={handleClose}></Modals>
     </div>
   );
 };
