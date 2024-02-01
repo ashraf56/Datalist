@@ -40,7 +40,7 @@ const Datalist = () => {
 
         {
           users.length != 0 ? (users.map(u => (
-            <div className="flex-column " key={u.show.id}>
+            <div className="flex-column " key={u?.show?.id}>
               <ListGroup  >
 
                 <Link to={`/${u?.show?.id}`} className='list-style-none  text-decoration-none'>
