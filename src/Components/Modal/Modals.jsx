@@ -29,11 +29,17 @@ const Modals = ({show, handleClose, selectedTask}) => {
           email: data.email
         }
         // Add ticket to array
-        tickets.push(newTicket);
+     
+    
+           tickets.push(newTicket);
+            localStorage.setItem('tickets', JSON.stringify(tickets));
+            toast.success('success')
+      
+     
       
         // Save updated tickets array
-        localStorage.setItem('tickets', JSON.stringify(tickets));
-        toast.success('success')
+       
+        
         reset()
       };
     
@@ -51,7 +57,7 @@ const Modals = ({show, handleClose, selectedTask}) => {
          <form onSubmit={handleSubmit(onSubmits)}>
   <div className="mb-3">
     <label for="exampleInputEmail1" className="form-label">Email address</label>
-    <input type="email" className="form-control" placeholder='enter email' id="exampleInputEmail1" aria-describedby="emailHelp" {...register('email')}/>
+    <input type="email" className="form-control" placeholder='enter email' id="exampleInputEmail1" aria-describedby="emailHelp" {...register('email')} required/>
   </div>
   <div className="mb-3">
     <label for="exampleInputPassword1" className="form-label">Movie name</label>

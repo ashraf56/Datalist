@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import { Button, Form, Modal } from 'react-bootstrap';
-import { useForm } from 'react-hook-form';
+import { Button } from 'react-bootstrap';
 import Modals from '../Modal/Modals';
 
 const DataDetail = () => {  
